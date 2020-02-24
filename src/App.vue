@@ -4,6 +4,10 @@
     <div class="main-container">
       <trail-select :trails='trails'></trail-select>
       <trail-detail :trail='selectedTrail'></trail-detail>
+
+    </div>
+    <div id="mapid">
+    <trail-map :map='trailMap'></trail-map>
     </div>
   </div>
 </template>
@@ -14,13 +18,15 @@ import TrailSelect from './components/TrailSelect.vue';
 import { eventBus } from './main.js';
 import TrailItem from './components/TrailItem.vue';
 import TrailDetail from './components/TrailDetail.vue';
+import TrailMap from './components/TrailMap.vue';
 
 export default {
   name: 'App',
   data(){
     return {
       trails: [],
-      selectedTrail: null
+      selectedTrail: null,
+      trailMap: {}
     };
   },
   mounted(){
@@ -35,7 +41,8 @@ export default {
   components: {
     "trail-list": TrailList,
     "trail-detail": TrailDetail,
-    "trail-select": TrailSelect
+    "trail-select": TrailSelect,
+    "trail-map": TrailMap
   }
 }
 </script>
