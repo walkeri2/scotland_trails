@@ -1,9 +1,22 @@
 <template lang="html">
   <head>
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
   </head>
-
+</template>
     <script>
+    import{eventBus} from '../main.js'
+
+    export default {
+      name: 'trail-map',
+      props: ['map']
+    }
+
+    src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+       integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+       crossorigin="">
+
       var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
       L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -14,23 +27,15 @@
           zoomOffset: -1,
           accessToken: 'pk.eyJ1Ijoid2Fsa2VyNzUzOCIsImEiOiJjazZ6YmlzcWExM3h0M25tb2I1MTEzajZsIn0.CghieUDjQK9JkzXFP07_8A'
       }).addTo(mymap);
-</template>
+    </script>
 
-<script>
-import{eventBus} from '../main.js'
 
-export default {
-  name: 'trail-map',
-  props: ['map']
-}
 
-</script>
 
-<style lang="css" scoped>
+
+
+<style
+lang="css" scoped>
 #mapid { height: 180px; }
 
 </style>
-
-<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-   crossorigin=""></script>
